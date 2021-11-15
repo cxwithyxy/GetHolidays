@@ -1,6 +1,8 @@
 # 获取中国休假日
 
-找了一圈GitHub，都没有发现自己需要的：需要将非工作日（包括节假日（ day_type = 0）、周末（只要是周末，不管是否调休 day_type = 2））与工作日（ day_type = 1）区分开来，写入json文件，或者拼装sql文件
+~~找了一圈GitHub，都没有发现自己需要的：需要将非工作日（包括节假日（ day_type = 0）、周末（只要是周末，不管是否调休 day_type = 2））与工作日（ day_type = 1）区分开来，写入json文件，或者拼装sql文件~~
+
+**工作日为 1，非工作日为0，调休而变成的工作日也是 1**
 
 通过爬取 [http://holidays-calendar.net](http://holidays-calendar.net/calendar_zh_cn/china_zh_cn.html) 网址获取公共假日
 
@@ -11,8 +13,10 @@
 ```python
 
 index.py    是执行测试文件
-data.json   是抓取处理后的2021年节假日json文件（结果可以自己处理，具体见参考holidays.py的67行）
-openday.sql 是拼装的sql文件
+data.json   是自动生成的， 抓取处理后的2021年节假日json文件（结果可以自己处理，具体见参考holidays.py的67行）
+openday.sql 是自动生成的，拼装的sql文件
+jsonToCsv.py 是把data.json处理成csv文件
+
 
 
 ##特殊处理
