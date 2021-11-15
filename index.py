@@ -1,7 +1,7 @@
 import holidays
 import json
 
-days=holidays.getYearHolidays('2021')
+days=holidays.getYearHolidays('2022')
 
 with open('data.json','r')as fp:
     json_data = json.load(fp)
