@@ -42,7 +42,7 @@ def getYearHolidays(year=time.strftime("%Y"), lan="zh_cn"):
     
    
 
-    soup = BeautifulSoup(html)
+    soup = BeautifulSoup(html,features="html.parser")
     #获取调休上班的日期
     noNeeddays=getWorkDay4Break(soup.find_all('div',class_="list-mark"),year)
 
@@ -80,7 +80,10 @@ def getYearHolidays(year=time.strftime("%Y"), lan="zh_cn"):
                 day = "%s%s" % (month, day.zfill(2))
 
                 if day in noNeeddays:
-                    day_type = 2
+                    day_type = 1
+
+                if day_type == 2:
+                    day_type = 0
 
                 months[day] = day_type
         data[month] = months
