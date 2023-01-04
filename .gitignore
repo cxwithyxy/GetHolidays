@@ -8,3 +8,5 @@ venv/
 csv.csv
 
 __pycache__/
+
+app.log

@@ -4,6 +4,7 @@ import re
 import time
 import logging
 import json
+import ssl
 #import requests
 from bs4 import BeautifulSoup
 
@@ -23,7 +24,8 @@ def getHtmlTxt(year=time.strftime("%Y"), lan="zh_cn"):
     #page_url="https://holidays-calendar.net/2019/calendar_zh_cn/china_zh_cn.html"
     logging.debug("爬取地址: %s" % page_url)
     try:
-        response = urllib.request.urlopen(page_url, timeout=10)
+        context = ssl._create_unverified_context() 
+        response = urllib.request.urlopen(page_url, timeout=10, context=context)
         html = response.read()
     except Exception as e:
         logging.error(e)
